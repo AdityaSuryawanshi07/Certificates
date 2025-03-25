@@ -1,0 +1,160 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for link color */
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+    color: #f7345e; /* Change color on hover */
+}
+
+/* Video Section */
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 100px 0;
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeIn 1s forwards; /* Fade in animation */
+}
+
+.content h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Explore Section */
+.explore {
+    text-align: center;
+    padding: 50px 0;
+    opacity: 0; /* Start hidden for animation */
+    animation: slideIn 1s forwards; /* Slide in animation */
+    animation-delay: 0.5s; /* Delay for effect */
+}
+
+.explore h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.explore h3 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+/* Card Styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 0.9rem;
+}
+
+/* Contact Us Section */
+.contactUs {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 50px 0;
+    opacity: 0; /* Start hidden for animation */
+    animation: fadeIn 1s forwards; /* Fade in animation */
+    animation-delay: 1s; /* Delay for effect */
+}
+
+.contactUs h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.contentBox {
+    padding: 20px;
+}
+
+.contentBox h4 {
+    margin: 10px 0;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.inputSub {
+    background-color: #f7345e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for button */
+}
+
+.inputSub:hover {
+    background-color: #82009f;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
