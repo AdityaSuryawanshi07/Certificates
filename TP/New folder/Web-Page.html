@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>Web-Page</title>
+    <style>
+        .custom-button {
+            border-radius: 2em;
+            padding-left: 2em;
+            padding-right: 2em;
+        }
+        .custom-img {
+            height: auto;
+            max-width: 100%;
+        }
+        .text-muted {
+            font-weight: 400;
+        }
+
+        
+.cards {
+    display: flex;
+    padding: 25px 0px;
+    list-style: none;
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 15%);
+    scroll-snap-align: start;
+    transition: all 0.2s;
+}
+
+.card:not(:last-child) {
+    margin-right: 10px;
+}
+
+.card:hover {
+    color: var(--white);
+    background: var(--red);
+}
+
+.card .card-title {
+    font-size: 20px;
+}
+
+.card .card-content {
+    margin: 10px 0;
+    max-width: 85%;
+}
+
+.card .card-link-wrapper {
+    margin-top: auto;
+}
+
+.card .card-link {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background: var(--red);
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.card:hover .card-link {
+    background: var(--darkred);
+}
+
+.card img{
+    height: 250px;
+}
+
+.cards::-webkit-scrollbar {
+    height: 12px;
+}
+
+.cards::-webkit-scrollbar-thumb,
+.cards::-webkit-scrollbar-track {
+    border-radius: 92px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+    background: var(--darkred);
+}
+
+.cards::-webkit-scrollbar-track {
+    background: var(--thumb);
+}
+
+@media (min-width: 500px) {
+    .card {
+        flex-basis: calc(50% - 10px);
+    }
+
+    .card:not(:last-child) {
+        margin-right: 20px;
+    }
+}
+
+@media (min-width: 700px) {
+    .card {
+        flex-basis: calc(calc(100% / 3) - 20px);
+    }
+
+    .card:not(:last-child) {
+        margin-right: 30px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .card {
+        flex-basis: calc(25% - 30px);
+    }
+
+    .card:not(:last-child) {
+        margin-right: 40px;
+    }
+}   
+.bg-custom {
+            background-color: rgb(188, 255, 255);
+        }
+        .img-custom {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .accordion button{
+          font-weight: 500;
+          font-size: large;
+          line-height: 2em;
+        }
+
+        .responsive-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            flex-wrap: wrap; /* Ensures images wrap on smaller screens */
+            gap: 10px; /* Adds space between images */
+        }
+
+        .responsive-img {
+            border-radius: 10px;
+            max-width: 100%; /* Ensure images fit within their container */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Default styling for images */
+        .responsive-img {
+            max-height: 270px;
+            max-width: 230px;
+        }
+
+        /* Media queries for smaller screens */
+        @media (max-width: 1200px) {
+            .responsive-img {
+                max-width: 200px; /* Reduce max-width on smaller screens */
+                max-height: 220px; /* Adjust height as needed */
+            }
+        }
+
+        @media (max-width: 992px) {
+            .responsive-img {
+                max-width: 180px; /* Further reduce max-width */
+                max-height: 200px; /* Adjust height */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .responsive-img {
+                max-width: 150px; /* Even smaller max-width for mobile devices */
+                max-height: 180px; /* Adjust height */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .responsive-img {
+                max-width: 100px; /* Smallest max-width */
+                max-height: 150px; /* Adjust height */
+            }
+        }
+
+        
+
+        
+    </style>
+</head>
+<body>
+  <div class="container-fluid  mt-3">
+    <div class="row align-items-start">
+        <div class="col-12 col-md-5 text-center mb-3 mb-md-0" >
+            <img src="https://networkinginfotech.com/Images/alteryx-logo.png"
+                class="img-fluid"
+                alt="Informatica Logo"
+                style="height: 50px; width: auto;">
+        </div>
+
+        <div class="col-12 col-md-7 text-center">
+            <div class="d-flex flex-column flex-md-row justify-content-md-center align-items-center">
+                <button type="button" class="btn btn-link" style="text-decoration: none;">Investments</button>
+                <button type="button" class="btn btn-link" style="text-decoration: none;">Owners/Brokers</button>
+                <button type="button" class="btn btn-link" style="text-decoration: none;">Lorem Ipsum</button>
+                <button type="button" class="btn btn-outline-dark mx-2 custom-button">Login</button>
+                <button type="button" class="btn btn-dark mx-2 custom-button">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <h1>Own a piece of Main Street: Join the SMB revolution!</h1>
+      <h5 class="mt-3 text-muted">Diversify your portfolio—unlock the attractive returns of Small-Medium Business without any of the operational burden</h5>
+    </div>
+
+    <div class="text-center mt-5">
+      <button type="button" class="btn btn-dark mt-2 mx-2 custom-button">
+        Join the WaitList &nbsp;
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row text-center" >
+       
+        <div class="responsive-container">
+          <img src="https://nusureins.com/wp-content/uploads/2024/08/business-owners-insurance-02.webp" class="responsive-img" alt="Image 1">
+          <img src="https://akns-images.eonline.com/eol_images/Entire_Site/202231/rs_1024x759-220401144633-1024-shopping-GettyImages-968906646.jpg?fit=around%7C1024:759&output-quality=90&crop=1024:759;center,top" class="responsive-img" alt="Image 2">
+          <img src="https://www.zenput.com/sites/default/files/styles/viewport/public/2021-10/iStock-1003743872.png.webp?itok=m6zsItgx" class="responsive-img" alt="Image 3">
+          <img src="https://www.kawarthacu.com/assets/img/840x480/SB%20financing%20840%20x%20700.png" class="responsive-img" alt="Image 5">
+          <img src="https://img.freepik.com/premium-photo/vertical-high-angle-portrait-two-people-enjoying-cooking-vegetables-kitchen-interior_236854-35066.jpg?w=360" class="responsive-img" alt="Image 2" style="object-fit: cover; max-height: 230px; max-width: 220px; width: 50%;">
+      </div>
+      </div>
+    </div>
+    <div class="container mt-5 bg-body-tertiary">
+      <div class="row text-center">
+        <div class="col-lg-3 mb-3 mt-3 p-2">FanShares Waitlist Counter <div><span style="color: #007bff; font-weight: bold;">41,974</span></div></div>
+        <div class="col-lg-3 mb-3 mt-3 p-2">An investor from Connecticut intends to invest <div><span style="color: #007bff; font-weight: bold;">2,000</span></div></div>
+        <div class="col-lg-3 mb-3 mt-3 p-2">An investor from Oregon intends to invest <div><span style="color: #007bff; font-weight: bold;">20,000</span></div></div>
+        <div class="col-lg-3 mb-3 mt-3 p-2">An investor from New Jersey intends to invest <div><span style="color: #007bff; font-weight: bold;">20,000</span></div></div>
+      </div>
+    </div>
+
+
+<!--    =============================================================================================================   -->
+
+       <div class="mt-5">
+        <center><h4><strong>Featured On</strong></h4></center>
+      </div>
+
+      <div>
+        <img src="" alt=""><img src="" alt=""><img src="" alt=""><img src="" alt=""><img src="" alt=""><img src="" alt="">
+      </div>
+
+
+      <div class="row col-md-12 p-5 mt-3">   
+
+        <div class="col-md-6"><h3>Our Impacts and achivements</h3></div>
+
+        <div class="col-md-6 row">
+        <div><h6>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos recusandae ex distinctio. Veniam voluptatem deserunt quod explicabo sint, facilis enim, libero ab quae magnam labore ipsam! Quam earum nisi atque.</h6></div>
+        
+        
+        <div class="col mt-5">
+          <span style="font-weight: 500;"><h2>120</h2><p style="font-size: small;">Assets Under managment</p></span>
+          <span class="mt-1" style="font-weight: 500;"><h2>10-40%</h2><p style="font-size: small;">Assets Under managment</p></span>
+        </div>
+        <div class="col mt-5">
+          <span style="font-weight: 500;"><h2>500$</h2><p style="font-size: small;">of cash flow distrubuted</p></span>
+          <span class="mt-1" style="font-weight: 500;"><h2>500</h2><p style="font-size: small;">Existing Investors</p></span>
+        </div>
+        </div>
+
+
+      </div>
+
+<!-- ================================================================================================================= -->
+
+
+<div style="text-align: center; width: 50%; margin: auto; ">
+<h1>Win-win Bussiness Model</h1>
+<p style="color: gray;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis doloribus ex, cum eum quod eius architecto eligendi, similique optio modi excepturi fugiat natus repellendus temporibus iste culpa dolor? Qui, fuga!</p>
+</div>  
+
+
+<div class="container">
+  <div class="row justify-content-center m-5">
+    <div class="col-12 col-md-4 p-5 " style="background-color: #daf7ff; border-radius: 10px;">
+        <h3>Your Problem</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam obcaecati quam saepe iusto accusamus eveniet tenetur adipisci, eius, voluptas ad perspiciatis eum possimus excepturi iure. </p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam obcaecati quam saepe iusto accusamus eveniet tenetur adipisci, eius, voluptas ad perspiciatis eum possimus excepturi iure. </p>
+    </div>
+    <div class="col-12 col-md-4 px-2">
+      <img src="https://img.freepik.com/free-photo/close-up-woman-working-laptop_23-2149300650.jpg?w=740&t=st=1723941518~exp=1723942118~hmac=aefde16a1b4502788b1ab8377f08a7dc00aca4f1cc15bd821c91b1c300f02234" style="border-radius: 10px; height: 400px; width: 100%;float: inline-end; object-fit: cover;" alt="" class="img-fluid img-custom">
+  </div>
+</div>
+
+  <div class="row justify-content-center m-5">
+      <div class="col-12 col-md-4 px-2">
+          <img src="https://img.freepik.com/free-photo/happy-woman-sitting-sofa-using-laptop-home_171337-19468.jpg?t=st=1723940966~exp=1723944566~hmac=9ef85b655dfd278249309b1577d44f122e52318c83494115684d0b7dcc2fe093&w=740" style="border-radius: 10px; height: 400px; width: 100%;float: inline-end; object-fit: cover;" alt="" class="img-fluid img-custom">
+      </div>
+      <div class="col-12 col-md-4 p-5" style="background-color: #daf7ff; border-radius: 10px;">
+          <h3>Our solution</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam obcaecati quam saepe iusto accusamus eveniet tenetur adipisci, eius, voluptas ad perspiciatis eum possimus excepturi iure. </p>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam obcaecati quam saepe iusto accusamus eveniet tenetur adipisci, eius, voluptas ad perspiciatis eum possimus excepturi iure. </p>
+      </div>
+  </div>
+</div>
+
+
+<!-- ======================================================================================== -->
+
+
+
+
+
+
+<!-- ========================================================================================= -->
+
+
+<div class="container-fluid" style="margin-top: 7em;">
+  <div class="" >
+    <div class="m-4"> <button style="float: right;" type="button" class="btn btn-dark mx-2 custom-button">Investments</button>
+  <h2>Industry Verticals</h2>
+    </div>
+    <hr>
+  <ul class="cards m-2">
+      <li class="card">
+          <div>
+              <img src="https://plus.unsplash.com/premium_photo-1680388655595-935496a22ecf?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+              <div class="card-content">
+                <h3 class="card-title">Lorem Ipsum</h3>
+              </div>
+          </div>
+          
+      </li>
+      <li class="card">
+          <div>
+              <img src="https://images.unsplash.com/photo-1660721671073-e139688fa3cf?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
+              <div class="card-content">
+                <h3 class="card-title">Lorem Ipsum</h3>
+              </div>
+          </div>
+          
+      </li>
+      <li class="card">
+          <div>
+              <img src="https://images.unsplash.com/photo-1649270716777-1bd08cb443f5?q=80&w=1378&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img " alt="...">
+              <div class="card-content">
+                <h3 class="card-title">Lorem Ipsum</h3>
+              </div>
+          </div>
+          
+      </li>
+      <li class="card">
+          <div>
+              <img src="https://media.istockphoto.com/id/540763550/photo/green-tea-in-clay-teacup.jpg?s=1024x1024&w=is&k=20&c=u-rUUCVZY_YtkpPkpnWrcdvIrtMBkf93soUjSmKh5yc=" class="card-img" alt="...">
+              <div class="card-content">
+                <h3 class="card-title">Lorem Ipsum</h3>
+              </div>
+          </div>
+          
+      </li>
+      <li class="card">
+          <div>
+              <img src="https://images.unsplash.com/photo-1663888672547-360e763e4ac7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img" alt="...">
+              <div class="card-content">
+                <h3 class="card-title">Lorem Ipsum</h3>
+              </div>
+          </div>
+          
+      </li>
+      <li class="card">
+          <div>
+              <img src="https://images.unsplash.com/photo-1631125914614-bd1d02e6cfef?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img" alt="...">
+              <div class="card-content">
+                <h3 class="card-title">Lorem Ipsum</h3>
+              </div>
+          </div>
+          
+      </li>
+        
+      
+      
+  </ul>
+</div>
+</div>
+
+
+<!-- ========================================================================================== -->
+<br>
+<br>
+<br><br><br>
+
+<div style="text-align: center; width: 50%; margin: auto; ">
+  <h1>Benefits</h1>
+  
+  </div>  
+  
+  <div class="container">
+    <div class="row justify-content-center m-5">
+      <div class="col-12 col-md-4 mb-4 mb-md-0">
+        <img src="https://img.freepik.com/free-photo/medium-shot-woman-wearing-blank-shirt_23-2149322994.jpg?w=360&t=st=1723939824~exp=1723940424~hmac=cb7a1c63ae5b839cb1dda6b9847fce494218ec4501c7965fdca934b10a5ce6c6" alt="" class="img-fluid" />
+      </div>
+      <div class="col-12 col-md-8">
+        <h3><span style="color: #007bff; font-weight: 400;">01</span>&nbsp; Passive Income</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam obcaecati quam saepe iusto accusamus eveniet tenetur adipisci. Aut asperiores harum nobis!</p>
+  
+        <hr>
+        <h3><span style="color: #007bff; font-weight: 400;">02</span>&nbsp; Diversify Portfolio</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam obcaecati quam saepe iusto accusamus eveniet tenetur adipisci, eius, voluptas ad perspiciatis eum possimus excepturi iure. Aut asperiores harum nobis!</p>
+  
+        <hr>
+        <h3><span style="color: #007bff; font-weight: 400;">03</span>&nbsp; No Operational Headache</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam obcaecati quam saepe iusto accusamus eveniet tenetur adipisci, eius, voluptas ad perspiciatis eum possimus excepturi iure. Aut asperiores harum nobis!</p>
+        
+        <hr>
+        <h3><span style="color: #007bff; font-weight: 400;">04</span>&nbsp; Value Appreciation</h3>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam totam obcaecati quam saepe iusto accusamus eveniet tenetur adipisci, eius, voluptas ad perspiciatis eum possimus excepturi iure. Aut asperiores harum nobis!</p>
+      </div>
+    </div>
+  </div>
+  
+  
+
+
+  <!-- ================================================================================================= -->
+
+<br><br><br>
+  <div style="width: 70%; margin: auto; ">
+    <center><h1>Frequently asked questions</h1></center>
+<br><br><br>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Who can invest on leveled ?
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, nemo?</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+           What is the minimum investment amount ?
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, nemo?</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            How does the leveled make money ?
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, nemo?</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFour">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+           What is the horizon investment ?
+          </button>
+        </h2>
+        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, nemo?</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingFive">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+            How can i lidiquate my money?
+          </button>
+        </h2>
+        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, nemo?</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+            What critiria does leveled utilize for investments?
+          </button>
+        </h2>
+        <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, nemo?</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ==================================================================================================== -->
+  
+  <div class="container mt-5" style="background-color: black;">
+    <div style="padding:5em; color: white; font-weight: 300;">
+      <h5>Success Stories</h5>
+      <br>
+      <h3>"The platform is very to use, and I now have a stable passive income. I really like it, and I now have a stable passive income. I really like it, highly recommended!"</h3>
+    
+
+    <div class="row" style="padding-top: 3em; padding-bottom: 1em; color: white;font-size: smaller;">
+      <div class="col"><h6><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7xhQFRBxhrwnVAnv5dmdA9-crgSNDR9MB0GK_1nFFl6gpfVMNaKBlqAMPZg&s" style="height: 40px; border-radius: 50%;" alt="">&nbsp; David Smith</h6><p style="margin-top: -1.5em;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEO Lorem Ipsum</p></div>
+      <div class="col" ><img src="https://img.icons8.com/?size=100&id=26129&format=png&color=FFFFFF" alt="" style="height: 3em; float:right; padding-right: 2em;padding-left: 2em;" ><img style="height: 3em; float: right;" src="https://img.icons8.com/?size=100&id=26194&format=png&color=FFFFFF" alt=""></div>
+    </div>
+
+
+    <div>
+      <div class="card align-items-center" style="background-color: #007bff; color: white; margin: 4em; padding: 5em;">
+       <div style="text-align: center;">
+        <h2>Start Invesing with us</h2><br>
+        <p>Convert the user to create an account and investment on the platform to <br> enjoy monthly cash flow/dividend and appreciation.</p>
+      </div>
+
+        <br><br>
+        <button type="button" class="btn btn-light mt-2 mx-2 custom-button">
+          Join the WaitList &nbsp;
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="row" style="padding-top: 3em;"> 
+        <div class="col"><a href="#" style="text-decoration: none; color: white; font-weight: 400;">Investments</a><a href="#" style="text-decoration: none; color: white; font-weight: 400; padding-left: 2em;">Owners/Brokers</a><a href="#" style="text-decoration: none; color: white; font-weight: 400; padding-left: 2em;">Lorem Ipsum</a></div>
+        <div class="col" style="text-align: end;"><a href="" style=" color: white;">support@getleved.co</a></div>
+      </div>
+
+      <hr>
+
+      <div class="row" style="padding-top: 1em;"> 
+        <div class="col"><img src="https://networkinginfotech.com/Images/alteryx-logo.png" alt=""></div>
+        <div class="col" style="text-align: end;"><h6 style="font-weight: 400; font-size: small; color: gray;">@ 2024 Leveled All rights reserved.</h6></div>
+      </div>
+
+      <div class="mt-5">
+        <p style="font-weight: 400; font-size: small; color: gray;">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil perspiciatis, veritatis laboriosam, optio amet dignissimos ut, atque cum ipsa asperiores fugiat assumenda. Odit ullam, fugiat nisi laudantium in et voluptatibus explicabo, dolor eaque illum cupiditate est provident ab libero veniam aspernatur adipisci beatae vero rem dolorem tenetur. Iste, eaque dolores.</p>     
+        <p style="font-weight: 400; font-size: small; color: gray;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur id laudantium quaerat vero incidunt temporibus expedita sint error aspernatur. Ipsam obcaecati voluptatum, voluptas dignissimos eaque ea ex rerum saepe, optio vitae quaerat praesentium. Nostrum dolorem deleniti doloribus saepe ipsam nulla delectus adipisci facilis exercitationem eum consequatur, iure, laboriosam libero eos ab tempore qui illum reprehenderit placeat. A, aliquam esse rem placeat natus temporibus odit ducimus repudiandae doloremque animi quis cupiditate laborum, nobis dignissimos distinctio aperiam est quos sunt eaque possimus ea fugit deserunt et. Excepturi, assumenda? Amet aut ratione illo ut fugit! Voluptate ex dolorum odio eveniet, animi officiis earum!</p>
+        <p style="font-weight: 400; font-size: small; color: gray;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est vero ab inventore tenetur eos voluptas odit, quisquam voluptate necessitatibus incidunt recusandae, atque, aut veniam voluptatum hic deserunt nobis nihil commodi consequuntur fuga culpa rerum libero eveniet? Omnis totam necessitatibus laborum, nobis voluptates dolorem maiores exercitationem aliquam facere consequuntur? Nostrum consequatur molestias, natus ullam quibusdam ratione, dolore asperiores architecto fuga voluptatem tempora labore autem est magni nemo? Accusantium saepe eos aut sequi, totam ad nihil sunt soluta nulla illo corrupti magnam.</p>
+        <p style="font-weight: 400; font-size: small; color: gray;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, molestiae. Sunt qui quidem tempora cupiditate quae quibusdam, nesciunt omnis. Repellat delectus sint ab optio veritatis ad voluptatum eveniet esse eum?</p>
+      </div>
+
+    </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
